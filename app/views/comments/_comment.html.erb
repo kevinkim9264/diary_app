@@ -1,0 +1,15 @@
+
+	<p>
+		<strong><%= comment.commenter %>: &nbsp </strong>
+	
+		<%= comment.body %>
+		
+		&nbsp&nbsp
+	
+		
+		<a data-confirm="Are you sure?" data-method="delete" href=<%= article_comment_path(comment.article, comment) %>>
+   			<button class="btn btn-danger btn-sm", style:"position:fixed;right:20px">Delete</button>
+		</a>
+		<%= link_to "Edit", edit_article_comment_path(comment.article, comment) %>
+
+	</p>

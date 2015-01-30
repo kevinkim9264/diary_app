@@ -10,7 +10,7 @@ This diary app will cover basic articles, comments, and user creations, and poss
 Still under construction.
 
 01/30/2015: Bootstrap enhancement.
-
+01/30/2015: Comments function under-construction.
 =================================
 
 
