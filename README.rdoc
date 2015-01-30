@@ -2,9 +2,6 @@
 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
 Ruby version: 1.9.3
 Rails version: 4.2.0
 
@@ -15,6 +12,10 @@ Still under construction.
 01/30/2015: Bootstrap enhancement.
 
 =================================
+
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
