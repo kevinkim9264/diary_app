@@ -3,17 +3,22 @@
 
 
 Ruby version: 1.9.3
+
 Rails version: 4.2.0
 
-This diary app will cover basic articles, comments, and user creations, and possibly user connectivities. 
+This diary app will cover basic articles, comments, and user 
+creations, and possibly user connectivities. 
 
 Still under construction.
-
+=================================
 01/30/2015: Bootstrap enhancement.
+
+=================================
 01/30/2015: Comments function under-construction.
+
 =================================
 
-
+01/31/2015: Comments editing function fixed.
 
 
 This README would normally document whatever steps are necessary to get the
