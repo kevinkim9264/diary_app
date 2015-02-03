@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 	def index
 		@articles = Article.all
+
 	end
 
 	def new
@@ -10,6 +11,7 @@ class ArticlesController < ApplicationController
 	def create
 		@article = Article.new(allow_params)
 		if @article.save
+			flash[:notice] = "You have successfully saved."
 			redirect_to article_path(@article)
 		else
 			render new_article_path
@@ -19,6 +21,7 @@ class ArticlesController < ApplicationController
 	def update
 		@article = Article.find(params[:id])
 		if @article.update(allow_params)
+			flash[:success] = "Successfully Updated!"
 			redirect_to @article
 		else
 			render 'edit'
@@ -32,6 +35,13 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@article = Article.find(params[:id])
+	end
+
+	def destroy
+		@article = Article.find(params[:id])
+		@article.destroy
+
+		redirect_to articles_path
 	end
 
 	private 
