@@ -63,6 +63,9 @@
 	<div id="main-container" class="container">
 		<div class="row">
 			<div class="col-md-10">
+				<% flash.each do |key, value| %>
+					<div class="flash <%= key %>"><%= value %></div>
+				<% end %>
 				<%= yield %>
 			</div>
 		</div>

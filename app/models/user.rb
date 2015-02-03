@@ -2,8 +2,9 @@ require 'digest'
 class User < ActiveRecord::Base
 	attr_accessor :password
 
-	validates :email, presence: true
+	validates :name, presence: true
 
+	validates :email, presence: true
 
 	validates :password, presence: true,
 						 confirmation: true,

@@ -17,20 +17,39 @@
 	</div>
   <% end %>
 
-
-	<div class="form-group">
-	<p>
-		<%= f.label :title %><br>
-		<%= f.text_field :title, placeholder: "No Empty title allowed", style: 'width:60%;'  %>
-	</p>
+  <% if @article.errors[:title].count > 0 %>
+	<div class="form-group has-error">
+		<p>
+		
+			<%= f.label :title, class: "control-label", for: "inputError1" %><br>
+			<%= f.text_field :title, class: "form-control", placeholder: "No Empty title allowed", style: 'width:60%;', for: "inputError1"  %>
+		</p>
 	</div>
+  <% else %>
+	<div class="form-group has-success">
+		<p>
+		
+			<%= f.label :title, class: "control-label", for: "inputSuccess1" %><br>
+			<%= f.text_field :title, class: "form-control", placeholder: "No Empty title allowed", style: 'width:60%;', for: "inputSuccess1"  %>
+		</p>
+	</div>
+  <% end %>
 
-	<div class="form-group">
-	<p>
-		<%= f.label :text %><br>
-		<%= f.text_area :text, style: 'width:60%;height:400px;' %>
-	</p>
-	</div class="form-group">
+	<% if @article.errors[:text].count > 0 %>
+		<div class="form-group has-error">
+		<p>
+			<%= f.label :text, class: "control-label", for: "inputError1" %><br>
+			<%= f.text_area :text, class: "form-control", style: 'width:60%;height:400px;', for: "inputError1" %>
+		</p>
+		</div>
+	<% else %>
+		<div class="form-group has-success">
+		<p>
+			<%= f.label :text, class: "control-label", for: "inputSuccess1" %><br>
+			<%= f.text_area :text, class: "form-control", style: 'width:60%;height:400px;', for: "inputSuccess1" %>
+		</p>
+		</div>
+	<% end %>
 
 	<p>
 		<%= f.submit %>

@@ -20,7 +20,14 @@ Still under construction.
 
 01/31/2015: Comments editing function fixed.
 
+===============================
 
+02/03/2015: User modeling under construction. (error blanks enhanced)
+ ============================
+
+ 02/04/2015: User signup complete
+
+======================
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
