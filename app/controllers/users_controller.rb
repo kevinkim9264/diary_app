@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
+			sign_in @user
 			flash[:success] = "Welcome to the Sample App!"
 			redirect_to user_path(@user)
 		else
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		#Should redirect to user's diary profile.(diary index page)
 	end
 
 	private

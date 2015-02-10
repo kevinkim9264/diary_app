@@ -2,9 +2,13 @@ require 'digest'
 class User < ActiveRecord::Base
 	attr_accessor :password
 
+	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
 	validates :name, presence: true
 
-	validates :email, presence: true
+	validates :email, presence: true,
+					  format: { with: email_regex },
+					  uniqueness: { case_sensitive: false}
 
 	validates :password, presence: true,
 						 confirmation: true,
@@ -25,6 +29,10 @@ class User < ActiveRecord::Base
 		return user if user.has_password?(submitted_password)
 	end
 
+	def self.authenticate_with_salt(id, cookie_salt)
+		user = find_by(id: id)
+		(user && user.salt == cookie_salt) ? user : nil
+	end
 
 	private
 
