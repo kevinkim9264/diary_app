@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
 	def index
 		@articles = Article.all
-
+		@user = User.find(params[:user_id])
 	end
 
 	def new
 		@article = Article.new
+		@user = User.find(params[:user_id])
 	end
 
 	def create
@@ -30,7 +31,7 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
-
+		@user = @article.user_id
 	end
 
 	def edit

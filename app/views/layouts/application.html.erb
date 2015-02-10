@@ -21,7 +21,7 @@
      	 Log in!
  	 	 </a>
      <% else %>
-     	 <a class="navbar-brand" href=<%= articles_path %>>
+     	 <a class="navbar-brand" href=<%= current_user %>>
      	 <%= current_user.name %>
      	 </a>
      <% end %>
@@ -52,7 +52,13 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", articles_path %></li>
+      	<% if current_user != nil %>
+        	<li><%= link_to "Home", user_articles_path(current_user) %></li>
+        <% else %>
+        	<li>
+        		<%= link_to "Home", signup_path %>
+        	</li>
+        <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">What's up? <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
