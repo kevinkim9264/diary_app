@@ -11,11 +11,12 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = Article.new(allow_params)
+		@user = User.find(params[:user_id])
 		if @article.save
 			flash[:notice] = "You have successfully saved."
 			redirect_to article_path(@article)
 		else
-			render new_article_path
+			render new_user_article_path(@user)
 		end
 	end
 
