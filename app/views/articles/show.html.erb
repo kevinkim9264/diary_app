@@ -19,7 +19,7 @@
 
 <div class="alert alert-success" role="alert">Successfully saved/updated article</div>
 
-<%= link_to 'Back', user_articles_path(@user) %> | <%= link_to 'New Article', new_user_article_path(@user) %> | <%= link_to 'Edit', edit_article_path %>
+<%= link_to 'Back', user_articles_path(@article.user) %> | <%= link_to 'New Article', new_user_article_path(@article.user) %> | <%= link_to 'Edit', edit_article_path(@article) %>
 
 
 

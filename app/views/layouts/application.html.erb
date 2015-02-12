@@ -21,7 +21,7 @@
      	 Log in!
  	 	 </a>
      <% else %>
-     	 <a class="navbar-brand" href=<%= current_user %>>
+     	 <a class="navbar-brand" href=<%= user_path(current_user) %>>
      	 <%= current_user.name %>
      	 </a>
      <% end %>

@@ -1,5 +1,5 @@
 
-<%= form_for ([@user,@article]) do |f| %>
+<%= form_for ([@user, @article]) do |f| %>
 	
   <% if @article.errors.any? %>
 	<div class="alert alert-danger" role="alert">
@@ -57,4 +57,4 @@
 
 <% end %>
 
-<%= link_to 'Back', user_articles_path(@user) %>
+<%= link_to 'Back', user_articles_path(@article.user) %>

@@ -7,16 +7,21 @@ class ArticlesController < ApplicationController
 	def new
 		@article = Article.new
 		@user = User.find(params[:user_id])
+		@article.user = @user
+		
 	end
 
 	def create
 		@article = Article.new(allow_params)
 		@user = User.find(params[:user_id])
+		@article.user = @user
 		if @article.save
-			flash[:notice] = "You have successfully saved."
+			flash[:notice] = "Successfully Saved"
+
 			redirect_to article_path(@article)
 		else
-			render new_user_article_path(@user)
+			render 'new'
+			#render new_user_article_path(@user)
 		end
 	end
 
@@ -43,7 +48,7 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 		@article.destroy
 
-		redirect_to articles_path
+		redirect_to user_articles_path(@article.user)
 	end
 
 	private 
