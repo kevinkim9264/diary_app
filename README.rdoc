@@ -33,6 +33,12 @@ Still under construction.
 02/10/2015: User sign-in-out complete(need to work on integrating articles and users)
 
 ======================
+
+02/12/2015: User integration with articles successfully working.
+
+======================
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
