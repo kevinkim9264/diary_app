@@ -1,5 +1,12 @@
 <h1>
-	<strong>Name:</strong>  <%= @user.name %> <br>
-	<strong>URL:</strong> <%= link_to user_url(@user), @user %>
+	Welcome, <strong><%= @user.name %></strong>!
+
 
 </h1>
+
+<h2>
+	Go ahead and write up your diary! 
+	<a href=<%=user_articles_path(@user) %>
+		<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+	</a>
+</h2>

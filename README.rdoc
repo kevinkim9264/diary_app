@@ -34,7 +34,7 @@ Still under construction.
 
 ======================
 
-02/12/2015: User integration with articles successfully working.
+02/12/2015: User integration with articles successfully working.p
 
 ======================
 
