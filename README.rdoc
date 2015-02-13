@@ -38,6 +38,9 @@ Still under construction.
 
 ======================
 
+02/13/2015: Enhanced user profile and working on user updating, deleting.
+
+======================
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
