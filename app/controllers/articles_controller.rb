@@ -1,14 +1,15 @@
 class ArticlesController < ApplicationController
+	before_filter :authenticate, only: [:index, :show]
+	before_filter :correct_user, only: [:create, :edit, :delete]
 	def index
-		@articles = Article.all
 		@user = User.find(params[:user_id])
+		@articles = @user.articles
 	end
 
 	def new
 		@article = Article.new
 		@user = User.find(params[:user_id])
-		@article.user = @user
-		
+		@article.user = @user	
 	end
 
 	def create
@@ -51,9 +52,22 @@ class ArticlesController < ApplicationController
 		redirect_to user_articles_path(@article.user)
 	end
 
+	
+
+
 	private 
 		def allow_params
 			params.require(:article).permit(:title, :text)
+		end
+
+		def authenticate
+			deny_access unless signed_in?
+		end
+
+		def correct_user
+			@article = Article.find(params[:id])
+			@user = @article.user
+			redirect_to(root_path) unless current_user?(@user)
 		end
 
 end

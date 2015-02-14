@@ -42,6 +42,11 @@ Still under construction.
 
 ======================
 
+02/15/2015: Done with user edit/update, index, and destroy actions.
+
+======================
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
