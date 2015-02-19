@@ -2,6 +2,15 @@ require 'digest'
 
 class User < ActiveRecord::Base
 	has_many :articles, dependent: :destroy
+	has_many :relationships, foreign_key: "followed_id",
+							 dependent: :destroy
+	has_many :following, through: :relationships, source: :followed
+
+	has_many :reverse_relationships, foreign_key: "followed_id",
+									 class_name: "Relationship",
+									 dependent: :destroy
+	has_many :followers, through: :reverse_relationships, source: :follower 
+
 	attr_accessor :password
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -34,6 +43,18 @@ class User < ActiveRecord::Base
 	def self.authenticate_with_salt(id, cookie_salt)
 		user = find_by(id: id)
 		(user && user.salt == cookie_salt) ? user : nil
+	end
+
+	def following?(followed)
+		relationships.find_by(followed_id: followed) 
+	end
+
+	def follow!(followed)
+		relationships.create!(followed_id: followed.id, follower_id: self.id)
+	end
+
+	def unfollow!(followed)
+		relationships.find_by(followed_id: followed).destroy
 	end
 
 	private

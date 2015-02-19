@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 	before_filter :authenticate, only: [:index, :show]
-	before_filter :correct_user, only: [:create, :edit, :delete]
+	before_filter :correct_user, only: [:edit, :delete]
 	def index
 		@user = User.find(params[:user_id])
 		@articles = @user.articles

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :users do
+  	member do
+  		get :following, :followers
+  	end
   	resources :articles, only: [:new, :index, :create]
   end
 
@@ -11,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :relationships, :only => [:create, :destroy]
 
   get '/signup', to: 'users#new'
   get '/signin', to: 'sessions#new'

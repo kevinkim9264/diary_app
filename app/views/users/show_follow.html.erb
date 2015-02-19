@@ -1,0 +1,24 @@
+<table summary="Information about following/follwers">
+	<tr>
+		<td class="main">
+			<h1><%= @title %></h1>
+			<% unless @users.empty? %>
+				<ul class="users">
+					<%= render @users %>
+				</ul>
+				<%= will_paginate @users %>
+			<% end %>
+		</td>
+
+		<td>
+			<strong>Name</strong> <%= @user.name %><br />
+			<strong>Diary Pages:</strong> <%= @user.articles.count %>
+			<%= render 'shared/stats' %>
+			<% unless @users.empty? %>
+				<% @users.each do |user| %>
+					<%= link_to user.name, user %>
+				<% end %>
+			<% end %>
+		</td>
+	</tr>
+</table>

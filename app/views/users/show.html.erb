@@ -10,3 +10,10 @@
 		<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
 	</a>
 </h2>
+
+
+
+<%= render 'follow_form' if signed_in? %>
+
+<strong>Diary Pages:</strong> <%= @user.articles.count %>
+<%= render 'shared/stats' %>

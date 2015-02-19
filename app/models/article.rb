@@ -10,4 +10,6 @@ class Article < ActiveRecord::Base
 
 	validates :text, presence: true,
 					 length: { in: 1..200 }
+
+	validates :user_id, presence: true
 end
